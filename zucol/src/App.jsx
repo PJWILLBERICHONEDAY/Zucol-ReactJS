@@ -8,15 +8,20 @@ function App() {
   const [currentView, setCurrentView] = useState("Greetings");
 
   const getActiveComponent = () => {
-    if (currentView === "Greetings") return <GreetingsModule />;
-    if (currentView === "Timer") return <TimerModule />;
-    if (currentView === "Counter") return <CounterModule />;
-    return <div>Component not found</div>;
+    switch (currentView) {
+      case "Greetings":
+        return <GreetingsModule />;
+      case "Timer":
+        return <TimerModule />;
+      case "Counter":
+        return <CounterModule />;
+      default:
+        return <div>Component not found</div>;
+    }
   };
 
   return (
     <div className="app-container">
-      {}
       <header className="navbar">
         <h1 className="app-title">Welcome to Zucol</h1>
         <nav className="nav-buttons">
@@ -25,11 +30,7 @@ function App() {
           <button onClick={() => setCurrentView("Counter")}>Counter</button>
         </nav>
       </header>
-
-      {}
       <main className="content">{getActiveComponent()}</main>
-
-      {}
       <footer className="footer">
         Powered by <strong>Zucol</strong>
       </footer>
@@ -54,22 +55,18 @@ const GreetingsModule = () => {
   );
 };
 
-const TimerModule = () => {
-  return (
-    <div className="timer-section">
-      <h2>Timer</h2>
-      <Timer />
-    </div>
-  );
-};
+const TimerModule = () => (
+  <div className="timer-section">
+    <h2>Timer</h2>
+    <Timer />
+  </div>
+);
 
-const CounterModule = () => {
-  return (
-    <div className="counter-section">
-      <h2>Counter</h2>
-      <Counter />
-    </div>
-  );
-};
+const CounterModule = () => (
+  <div className="counter-section">
+    <h2>Counter</h2>
+    <Counter />
+  </div>
+);
 
 export default App;
