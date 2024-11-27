@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Greetings from "./greetings";
+import Greetings from "./Greetings";
 import Counter from "./Counter";
 import Timer from "./Timer";
 import "./App.css";
